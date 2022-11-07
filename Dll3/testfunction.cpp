@@ -31,7 +31,7 @@ void Delete_complex()
 	delete p_complex;
 }
 
-void ABS(complex_wrap* p) {
+void ABS(complex_wrap* p){
 	// New_complex();
 	p_complex = new complex(p->p1, p->p2);
 	// p_complex->x = p->p1;
@@ -42,4 +42,13 @@ void ABS(complex_wrap* p) {
 	test = abs(*p_complex);
 	std::cout << "ABS‚ÌŠÖ”‚ð“®‚©‚·" << test << std::endl;
 	Delete_complex();
+}
+
+double ARG(complex_wrap* p){
+	p_complex = new complex(p->p1, p->p2);
+	double test;
+	test = arg(*p_complex);
+	std::cout << "arg‚ÌŠÖ”‚ð“®‚©‚·" << test << std::endl;
+	Delete_complex();
+	return test;
 }

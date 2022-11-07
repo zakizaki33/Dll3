@@ -29,9 +29,10 @@ int main()
 
     ABS(c2);
     
-    /*
-    complex c3 = complex(1,2);
-    std::cout << "c3の共役複素数の絶対値は=" << abs(conj(c3)) << std::endl;
-    */
-
+    // complexのargを計算する(戻り値がdoubleの場合)
+    complex_wrap c3 ;
+    c3.p1 = 1;
+    c3.p2 = 1;
+    double arg_c3 = ARG(&c3);
+    std::cout << "c3の角度は　=" << arg_c3 << "rad" << std::endl;
 }

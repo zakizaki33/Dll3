@@ -21,14 +21,11 @@ public:
 	complex(double,double);
 	virtual ~complex();
 	friend double& Re(complex&);
-	// friend double Re(complex&);
-	//friend double Re(const complex&);   //const で変更できないようにする？
-
 
 	friend double& Im(complex&);
 	friend double abs(const complex&);
 // #if _MSC_VER < 1800 // Visual C++ 2013 より古いとき
-// 	friend double abs(double);  // 【重要】新しいC++ではこの関数を削除すること（詳細は定義を参照）
+// friend double abs(double);  // 【重要】新しいC++ではこの関数を削除すること（詳細は定義を参照）
 // #endif // _MSC_VER < 1800
 	friend double sqabs(const complex&);
 	friend double arg(const complex&);
