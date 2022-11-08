@@ -9,13 +9,21 @@ namespace USING_Dll3_CS
 {
     class Program
     {
-        
+        [StructLayout(LayoutKind.Sequential)]
+        public struct Complex 
+        {
+            public double x;
+            public double y;
+            // public IntPtr data;
+        }
         
 
         // 追加関数
         // [DllImport("Dll3.dll")]
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void test_01();
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern double ARG(ref Complex pComp);
         [DllImport("Dll_CPPtoCS.dll")]
         public static extern void func();
 
@@ -26,6 +34,13 @@ namespace USING_Dll3_CS
             Console.WriteLine("最初の一歩");
             func(); // Dll_CPPtoCS.dll の中の関数
             test_01();　// Dll3.dll の中の関数
+
+            // complexを計算させる
+            var comp1 = new Complex(){ x = Math.Sqrt(3), y = 1 };
+            Console.WriteLine($"{comp1.x} {comp1.y}");
+
+            double arg = ARG(ref comp1);
+            Console.WriteLine(arg*180/Math.PI);
 
         }
     }
