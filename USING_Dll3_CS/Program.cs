@@ -26,7 +26,8 @@ namespace USING_Dll3_CS
         public static extern double ARG(ref Complex pComp);
         [DllImport("Dll_CPPtoCS.dll")]
         public static extern void func();
-
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Conjugate(ref Complex cComp1, ref Complex cComp2);
 
         static void Main(string[] args)
         {
@@ -41,6 +42,14 @@ namespace USING_Dll3_CS
 
             double arg = ARG(ref comp1);
             Console.WriteLine(arg*180/Math.PI);
+
+            // 複素共役を取得する（インプットとアウトプットの二つの複素数で戻り値無し）
+            // 空の複素数を用意
+            Complex comp_conj = new Complex() {x=0, y=0};
+            Conjugate(ref comp1, ref comp_conj);
+            Console.WriteLine("複素共役をゲットする");
+            Console.WriteLine("comp1実部=" + $"{comp1.x}" + " ,虚部=" + $"{comp1.y}\n");
+            Console.WriteLine("comp1共役実部=" + $"{comp_conj.x}" + " ,comp1共役虚部=" + $"{comp_conj.y}\n");
 
         }
     }

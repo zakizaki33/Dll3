@@ -52,3 +52,20 @@ double ARG(complex_wrap* p){
 	Delete_complex();
 	return test;
 }
+
+void Conjugate(complex_wrap* comp1, complex_wrap* comp2)
+{
+	// インプット、アウトプット用の複素数を二つ用意する
+	complex* p_c1 = new complex(comp1->p1, comp1->p2);
+	complex* p_c2 = new complex(comp2->p1, comp2->p2);
+
+	*p_c2 = conj(*p_c1);
+	comp2->p1 = Re(*p_c2);
+	comp2->p2 = Im(*p_c2);
+
+	std::cout << "動作確認用メッセージ 2022-11-14 " << std::endl;
+
+	delete p_c1;
+	delete p_c2;
+
+}

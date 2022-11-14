@@ -23,4 +23,7 @@ extern "C" MATHLIBRARY_API void New_complex();
 extern "C" MATHLIBRARY_API void Delete_complex();
 
 extern "C" MATHLIBRARY_API void ABS(complex_wrap*);
+
 extern "C" MATHLIBRARY_API double ARG(complex_wrap*);
+
+extern "C" MATHLIBRARY_API void Conjugate(complex_wrap*, complex_wrap*);

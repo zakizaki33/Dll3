@@ -35,4 +35,14 @@ int main()
     c3.p2 = 1;
     double arg_c3 = ARG(&c3);
     std::cout << "c3の角度は　=" << arg_c3 << "rad" << std::endl;
+
+    // complex_wrapのconjugateをGetする
+    complex_wrap c4;
+    c4.p1 = 0;
+    c4.p2 = 0;
+    Conjugate(&c3, &c4);
+    std::cout << "c3の共役複素数(実数)は　=" << c4.p1 << "です" << std::endl;
+    std::cout << "c3の共役複素数(虚数)は　=" << c4.p2 << "です" << std::endl;
+
+
 }
