@@ -16,7 +16,15 @@ namespace USING_Dll3_CS
             public double y;
             // public IntPtr data;
         }
-        
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct Matrix
+        {
+            public int n;
+            public int m;
+            public IntPtr data;
+        }
+
 
         // 追加関数
         // [DllImport("Dll3.dll")]
@@ -51,6 +59,9 @@ namespace USING_Dll3_CS
             Console.WriteLine("comp1実部=" + $"{comp1.x}" + " ,虚部=" + $"{comp1.y}\n");
             Console.WriteLine("comp1共役実部=" + $"{comp_conj.x}" + " ,comp1共役虚部=" + $"{comp_conj.y}\n");
 
+
+            // Matrix の関数を利用する
+            var c4 = new Matrix();
         }
     }
 }

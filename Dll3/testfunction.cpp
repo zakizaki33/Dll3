@@ -4,17 +4,19 @@
 #include <stdlib.h>
 #include "testfunction.h"
 #include "complex.h"
+#include "Matrix.h"
 
 complex_wrap* static_c;
 complex* p_complex;
+matrix_wrap* static_m;
+matrix<double>* p_matrix;
 
 void test_01()
 {
 	printf("\nHello Dll3!!! 2022-11-07\n\n");
 }
 
-
-complex_wrap* test_001() {
+complex_wrap* test—ˆ‰º‚ª_001() {
 	static_c = new complex_wrap();
 	static_c->p1 = 0.123;
 	static_c->p2 = 0.456;
@@ -68,4 +70,21 @@ void Conjugate(complex_wrap* comp1, complex_wrap* comp2)
 	delete p_c1;
 	delete p_c2;
 
+}
+
+void New_matrix()
+{
+	// matrix<double> A1();
+	//matrix<double>* A0 = new matrix<double>();
+	p_matrix = new matrix<double>();
+}
+
+void Delete_matrix()
+{
+	delete p_matrix;
+}
+
+void matrix_init(matrix<double>* p, int m, int n)
+{
+	p->redim(m,n);
 }
