@@ -47,10 +47,6 @@ int main()
     matrix_wrap* mat1 = new matrix_wrap();
     matrix_init(mat1, 2, 2);
     
-    // mat1->m = 2;
-    // mat1->n = 2;
-
-
-    // matrix_init(mat1, mat1->m, mat1->n);
+    std::cout << "mat1の中身" << mat1->m << std::endl;
 
 }

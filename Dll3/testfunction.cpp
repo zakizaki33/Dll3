@@ -88,4 +88,7 @@ void matrix_init(matrix_wrap* p, int m, int n)
 {
 	p_matrix = new matrix<double> (m, n);
 	std::cout << "matrix_initŒÄ‚Ño‚µ¬Œ÷"<< std::endl;
+	p->m = m;
+	p->n = n;
+
 }
