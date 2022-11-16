@@ -16,7 +16,7 @@ void test_01()
 	printf("\nHello Dll3!!! 2022-11-07\n\n");
 }
 
-complex_wrap* test—ˆ‰º‚ª_001() {
+complex_wrap* test_001() {
 	static_c = new complex_wrap();
 	static_c->p1 = 0.123;
 	static_c->p2 = 0.456;
@@ -84,7 +84,8 @@ void Delete_matrix()
 	delete p_matrix;
 }
 
-void matrix_init(matrix<double>* p, int m, int n)
+void matrix_init(matrix_wrap* p, int m, int n)
 {
-	p->redim(m,n);
+	p_matrix = new matrix<double> (m, n);
+	std::cout << "matrix_initŒÄ‚Ño‚µ¬Œ÷"<< std::endl;
 }

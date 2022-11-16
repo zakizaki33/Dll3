@@ -15,8 +15,9 @@ struct complex_wrap {
 };
 
 struct matrix_wrap {
-	int n;
-	int m;
+	int m = 0;
+	int n = 0;
+	// double** dpmatrix_wrap;
 };
 
 // 単なるテスト関数
@@ -39,4 +40,4 @@ extern "C" MATHLIBRARY_API void New_matrix();
 
 extern "C" MATHLIBRARY_API void Delete_matrix();
 
-extern "C" MATHLIBRARY_API void matrix_init(matrix<double> * p, int m, int n);
+extern "C" MATHLIBRARY_API void matrix_init(matrix_wrap * p, int m, int n);

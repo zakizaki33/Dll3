@@ -44,9 +44,12 @@ int main()
     std::cout << "c3の共役複素数(虚数)は　=" << c4.p2 << "です" << std::endl;
 
     // matrixの練習はここから
-    matrix_wrap* mat1;
-    mat1->m = 2;
-    mat1->n = 2;
+    matrix_wrap* mat1 = new matrix_wrap();
+    matrix_init(mat1, 2, 2);
+    
+    // mat1->m = 2;
+    // mat1->n = 2;
+
 
     // matrix_init(mat1, mat1->m, mat1->n);
 
