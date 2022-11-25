@@ -41,12 +41,23 @@ int main()
     c4.p2 = 0;
     Conjugate(&c3, &c4);
     std::cout << "c3の共役複素数(実数)は　=" << c4.p1 << "です" << std::endl;
-    std::cout << "c3の共役複素数(虚数)は　=" << c4.p2 << "です" << std::endl;
+    std::cout << "c3の共役複素数(虚数)は　=" << c4.p2 << "です" << std::endl << std::endl;
 
-    // matrixの練習はここから
+    std::cout << "matrixの練習はここから"<< std::endl;
     matrix_wrap* mat1 = new matrix_wrap();
-    matrix_init(mat1, 2, 2);
-    
-    std::cout << "mat1の中身" << mat1->m << std::endl;
+    New_matrixMN(mat1, 2, 2);
+            
+    std::cout << "mat1のmの中身" << mat1->m << std::endl;
+    std::cout << "mat1のnの中身" << mat1->n << std::endl;
+
+
+
+
+    std::cout << "matrixの練習その②" << std::endl;
+    matrix<double>  mat2;
+    matrix_init(&mat2, 2, 2);
+
+    // std::cout << "mat2のmの中身" << mat2.a[1][1] << std::endl;
+
 
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "complex.h"
-#include"Matrix.h"
+#include "Matrix.h"
 
 #ifdef DLL3_EXPORTS
 #define MATHLIBRARY_API __declspec(dllexport)
@@ -17,7 +17,7 @@ struct complex_wrap {
 struct matrix_wrap {
 	int m = 0;
 	int n = 0;
-	double** dpmatrix_wrap;
+	double** dpmatrix_wrap = nullptr;
 };
 
 // 単なるテスト関数
@@ -36,21 +36,27 @@ extern "C" MATHLIBRARY_API double ARG(complex_wrap*);
 extern "C" MATHLIBRARY_API void Conjugate(complex_wrap*, complex_wrap*);
 
 // ここからはmatrixに関する関数
-// newの時に、ポインタが必要。なので引数が1つ増える
-// 
-extern "C" MATHLIBRARY_API void New_matrix();
+// newの時に、ポインタが必要。それぞれ引数が(python で言うself)1つ増える
 extern "C" MATHLIBRARY_API void New_matrix(matrix_wrap* p);
-extern "C" MATHLIBRARY_API void New_matrix(matrix_wrap* p, int m, int n);
+extern "C" MATHLIBRARY_API void New_matrixMN(matrix_wrap* p, int m, int n);
+extern "C" MATHLIBRARY_API void New_matrixCopy(matrix_wrap* p1, const matrix_wrap * p2);
 
-// matrix(const matrix<T>&); ??オリジナル
-// 候補2
-extern "C" MATHLIBRARY_API void New_matrix(matrix_wrap* p1, const matrix_wrap& );
+extern "C" MATHLIBRARY_API void Delete_matrix(matrix_wrap * p);
+
+extern "C" MATHLIBRARY_API void Matrix_Set_Value(matrix_wrap * p, int m, int n, double num);
+
+/*
+// matrix(const matrix<T>&); オリジナル
 // 候補1
 extern "C" MATHLIBRARY_API void New_matrix(matrix_wrap* p1, const matrix_wrap* p2);
-
-
-
-extern "C" MATHLIBRARY_API void Delete_matrix();
+// 候補2
+extern "C" MATHLIBRARY_API void New_matrix(matrix_wrap* p1, const matrix_wrap& );
+*/
 
 // ↓これは要らない
+/*
 extern "C" MATHLIBRARY_API void matrix_init(matrix_wrap * p, int m, int n);
+*/
+
+// Sammple_26_1_copy\ConsoleApp1の書き方を参考にする
+extern "C" MATHLIBRARY_API void matrix_init(matrix<double> * p, int m, int n);

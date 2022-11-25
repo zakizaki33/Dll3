@@ -81,23 +81,48 @@ void Conjugate(complex_wrap* comp1, complex_wrap* comp2)
 
 }
 
-void New_matrix()
+void New_matrix(matrix_wrap* p)
 {
 	// matrix<double> A1();
 	//matrix<double>* A0 = new matrix<double>();
-	p_matrix = new matrix<double>();
+	// p_matrix = new matrix<double>();
 }
 
-void Delete_matrix()
+void New_matrixMN(matrix_wrap* p, int m, int n)
+{
+	p_matrix = new matrix<double>(m, n);
+	p->m = m;
+	p->n = n;
+	p->dpmatrix_wrap = p_matrix->a;
+
+}
+void New_matrixCopy(matrix_wrap* p1, matrix_wrap* p2)
+{
+}
+void Delete_matrix(matrix_wrap* p)
 {
 	delete p_matrix;
 }
 
+/*
 void matrix_init(matrix_wrap* p, int m, int n)
 {
 	p_matrix = new matrix<double> (m, n);
 	std::cout << "matrix_initåƒÇ—èoÇµê¨å˜"<< std::endl;
 	p->m = m;
 	p->n = n;
+
+}
+*/
+
+// çsóÒÇÃèâä˙âª
+void matrix_init(matrix<double>* p, int m, int n) {
+	p_matrix = new matrix<double>(m, n);
+	// p_matrix->a[1][1] = 1.1;
+	// p_matrix->a[0][1] = 2.2;
+	// p_matrix->a[1][0] = 3.3;
+	// p_matrix->a[1][1] = 4.4;
+
+	p = p_matrix;
 
 }
