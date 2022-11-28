@@ -54,10 +54,14 @@ int main()
 
 
     std::cout << "matrixの練習その②" << std::endl;
-    matrix<double>  mat2;
-    matrix_init(&mat2, 2, 2);
+    matrix<double>*  pmat2 =new matrix<double>();
+    matrix_init(pmat2, 2, 2);
 
-    // std::cout << "mat2のmの中身" << mat2.a[1][1] << std::endl;
+    std::cout << "mat2のmの中身" << pmat2->rows() << std::endl;
+    std::cout << "mat2のmの中身" << pmat2->a[1][1] << std::endl;
+    std::cout << "mat2のmの中身" << pmat2->a[1][2] << std::endl;
+    std::cout << "mat2のmの中身" << pmat2->a[2][1] << std::endl;
+    std::cout << "mat2のmの中身" << pmat2->a[2][2] << std::endl;
 
 
 }

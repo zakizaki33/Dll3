@@ -117,12 +117,21 @@ void matrix_init(matrix_wrap* p, int m, int n)
 
 // s—ñ‚Ì‰Šú‰»
 void matrix_init(matrix<double>* p, int m, int n) {
-	p_matrix = new matrix<double>(m, n);
+	//p_matrix = new matrix<double>(m, n);
 	// p_matrix->a[1][1] = 1.1;
 	// p_matrix->a[0][1] = 2.2;
 	// p_matrix->a[1][0] = 3.3;
 	// p_matrix->a[1][1] = 4.4;
+	// p = p_matrix;
 
-	p = p_matrix;
+	// p = new matrix<double>(m, n);
 
+	// —v‘fm,n‚Å‘‚«Š·‚¦
+	p->redim(m, n);
+
+	p->a[1][1] = 1.1;
+    p->a[1][2] = 2.2;
+    p->a[2][1] = 3.3;
+    p->a[2][2] = 4.4;
+	
 }
