@@ -63,5 +63,13 @@ int main()
     std::cout << "mat2のmの中身" << pmat2->a[2][1] << std::endl;
     std::cout << "mat2のmの中身" << pmat2->a[2][2] << std::endl;
 
+    std::cout << "逆行列を求める" << std::endl;
+    matrix<double>* pmat2_inv = new matrix<double>();
+    matrix_init(pmat2_inv, 2, 2);
+    matrix_inv(pmat2, pmat2_inv);
+    std::cout << "mat2_invのmの中身 a[1][1]" << pmat2_inv->a[1][1] << std::endl;
+    std::cout << "mat2_invのmの中身 a[1][2]" << pmat2_inv->a[1][2] << std::endl;
+    std::cout << "mat2_invのmの中身 a[2][1]" << pmat2_inv->a[2][1] << std::endl;
+    std::cout << "mat2_invのmの中身 a[2][2]" << pmat2_inv->a[2][2] << std::endl;
 
 }

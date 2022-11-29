@@ -129,9 +129,15 @@ void matrix_init(matrix<double>* p, int m, int n) {
 	// —v‘fm,n‚Å‘‚«Š·‚¦
 	p->redim(m, n);
 
-	p->a[1][1] = 1.1;
-    p->a[1][2] = 2.2;
-    p->a[2][1] = 3.3;
-    p->a[2][2] = 4.4;
+	p->a[1][1] = 1.0;
+    p->a[1][2] = 3.0;
+    p->a[2][1] = 2.0;
+    p->a[2][2] = 5.0;
 	
+}
+
+// ‹ts—ñ‚ÌŠÖ”
+void matrix_inv(matrix<double>* p1, matrix<double>* p2) 
+{
+	*p2 = inv(*p1);
 }

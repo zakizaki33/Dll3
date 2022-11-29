@@ -60,3 +60,5 @@ extern "C" MATHLIBRARY_API void matrix_init(matrix_wrap * p, int m, int n);
 
 // Sammple_26_1_copy\ConsoleApp1‚Ì‘‚«•û‚ğQl‚É‚·‚é
 extern "C" MATHLIBRARY_API void matrix_init(matrix<double> * p, int m, int n);
+
+extern "C" MATHLIBRARY_API void matrix_inv(matrix<double> * p1, matrix<double> * p2);
