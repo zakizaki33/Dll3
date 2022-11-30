@@ -142,6 +142,8 @@ void matrix_inv(matrix<double>* p1, matrix<double>* p2)
 	*p2 = inv(*p1);
 }
 
+
+
 matrix<double>* CreateMatrix()
 {
 	return new matrix<double>();

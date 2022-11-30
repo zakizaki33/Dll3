@@ -14,6 +14,9 @@ namespace USING_Dll3_CS
         private static extern IntPtr CreateMatrix();
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr CreateMatrixMN(int m, int n);
+
+
+
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern void SetMatrixIJ(IntPtr pMatrix, int m, int n, double value);
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -21,7 +24,8 @@ namespace USING_Dll3_CS
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern void DeleteMatrix(IntPtr pMatrix);
 
-        private readonly IntPtr _MatrixPointer;
+        // private readonly IntPtr _MatrixPointer;
+        public IntPtr _MatrixPointer;
 
         public Matrix2()
         {
@@ -37,6 +41,8 @@ namespace USING_Dll3_CS
         {
             DeleteMatrix(_MatrixPointer);
         }
+
+
 
         public void SetMatrix(int m, int n, double value)
         {

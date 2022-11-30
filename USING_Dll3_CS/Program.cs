@@ -37,6 +37,10 @@ namespace USING_Dll3_CS
         public static extern void Conjugate(ref Complex cComp1, ref Complex cComp2);
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void matrix_init(ref Matrix p1, int m, int n);
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void matrix_inv(IntPtr p1, IntPtr p2);
+
+
 
         static void Main(string[] args)
         {
@@ -69,11 +73,23 @@ namespace USING_Dll3_CS
 
             Matrix2 matrix2 = new Matrix2(2,2);
 
-            matrix2.SetMatrix(1,1,12.3);
+            // 行列に値をセット
+            matrix2.SetMatrix(1,1,2);
+            matrix2.SetMatrix(1, 2, 1);
+            matrix2.SetMatrix(2, 1, 7);
+            matrix2.SetMatrix(2, 2, 4);
 
             Console.WriteLine(matrix2.GetMatrix(1,1));
 
+            // コピー用のMatrixを作る
+            Matrix2 matrix2_copy = new Matrix2(2, 2);
 
+            matrix_inv(matrix2._MatrixPointer, matrix2_copy._MatrixPointer);
+
+            Console.WriteLine(matrix2_copy.GetMatrix(1, 1));
+            Console.WriteLine(matrix2_copy.GetMatrix(1, 2));
+            Console.WriteLine(matrix2_copy.GetMatrix(2, 1));
+            Console.WriteLine(matrix2_copy.GetMatrix(2, 2));
 
         }
     }
