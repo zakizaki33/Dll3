@@ -62,3 +62,15 @@ extern "C" MATHLIBRARY_API void matrix_init(matrix_wrap * p, int m, int n);
 extern "C" MATHLIBRARY_API void matrix_init(matrix<double> * p, int m, int n);
 
 extern "C" MATHLIBRARY_API void matrix_inv(matrix<double> * p1, matrix<double> * p2);
+
+// https://www.youtube.com/watch?v=xkfQFYUuE4o&list=LL&index=22
+// Ç±Ç±ÇÃìÆâÊÇÃê^éó
+extern "C" MATHLIBRARY_API matrix<double>* CreateMatrix();
+
+extern "C" MATHLIBRARY_API matrix<double> * CreateMatrixMN(int m, int n);
+
+extern "C" MATHLIBRARY_API void SetMatrixIJ(matrix<double>* pMatrix,int m, int n, double value);
+
+extern "C" MATHLIBRARY_API double GetMatrixIJ(matrix<double> * pMatrix, int m, int n);
+
+extern "C" MATHLIBRARY_API void DeleteMatrix(matrix<double>* pMatrix);

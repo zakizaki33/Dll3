@@ -25,7 +25,6 @@ namespace USING_Dll3_CS
             public IntPtr data;
         }
 
-
         // 追加関数
         // [DllImport("Dll3.dll")]
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -36,6 +35,8 @@ namespace USING_Dll3_CS
         public static extern void func();
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Conjugate(ref Complex cComp1, ref Complex cComp2);
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void matrix_init(ref Matrix p1, int m, int n);
 
         static void Main(string[] args)
         {
@@ -61,7 +62,19 @@ namespace USING_Dll3_CS
 
 
             // Matrix の関数を利用する
-            var c4 = new Matrix();
+            // var c4 = new Matrix();
+            // matrix_init(ref c4, 2, 2);
+
+            Matrix2 matrix1 = new Matrix2();
+
+            Matrix2 matrix2 = new Matrix2(2,2);
+
+            matrix2.SetMatrix(1,1,12.3);
+
+            Console.WriteLine(matrix2.GetMatrix(1,1));
+
+
+
         }
     }
 }

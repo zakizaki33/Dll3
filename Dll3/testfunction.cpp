@@ -141,3 +141,29 @@ void matrix_inv(matrix<double>* p1, matrix<double>* p2)
 {
 	*p2 = inv(*p1);
 }
+
+matrix<double>* CreateMatrix()
+{
+	return new matrix<double>();
+}
+
+matrix<double>* CreateMatrixMN(int m, int n)
+{
+	return new matrix<double>(m, n);
+}
+
+void SetMatrixIJ(matrix<double>* pMatrix, int m, int n, double value)
+{
+	pMatrix->a[m][n] = value;
+}
+
+double GetMatrixIJ(matrix<double>* pMatrix, int m, int n)
+{
+	return pMatrix->a[m][n];
+}
+
+
+void DeleteMatrix(matrix<double>* pMatrix)
+{
+	delete pMatrix;
+}
