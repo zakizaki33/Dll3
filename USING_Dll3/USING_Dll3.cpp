@@ -43,6 +43,7 @@ int main()
     std::cout << "c3の共役複素数(実数)は　=" << c4.p1 << "です" << std::endl;
     std::cout << "c3の共役複素数(虚数)は　=" << c4.p2 << "です" << std::endl << std::endl;
 
+    // matrixの練習はここから
     std::cout << "matrixの練習はここから"<< std::endl;
     matrix_wrap* mat1 = new matrix_wrap();
     New_matrixMN(mat1, 2, 2);
@@ -50,18 +51,16 @@ int main()
     std::cout << "mat1のmの中身" << mat1->m << std::endl;
     std::cout << "mat1のnの中身" << mat1->n << std::endl;
 
-
-
-
+    // matrixの練習(書き方変更：直接matrix<double>を使う）
     std::cout << "matrixの練習その②" << std::endl;
     matrix<double>*  pmat2 =new matrix<double>();
     matrix_init(pmat2, 2, 2);
 
-    std::cout << "mat2のmの中身" << pmat2->rows() << std::endl;
-    std::cout << "mat2のmの中身" << pmat2->a[1][1] << std::endl;
-    std::cout << "mat2のmの中身" << pmat2->a[1][2] << std::endl;
-    std::cout << "mat2のmの中身" << pmat2->a[2][1] << std::endl;
-    std::cout << "mat2のmの中身" << pmat2->a[2][2] << std::endl;
+    std::cout << "mat2のmの行の数" << pmat2->rows() << std::endl;
+    std::cout << "mat2のmの中身 a[1][1]" << pmat2->a[1][1] << std::endl;
+    std::cout << "mat2のmの中身 a[1][2]" << pmat2->a[1][2] << std::endl;
+    std::cout << "mat2のmの中身 a[2][1]" << pmat2->a[2][1] << std::endl;
+    std::cout << "mat2のmの中身 a[2][2]" << pmat2->a[2][2] << std::endl;
 
     std::cout << "逆行列を求める" << std::endl;
     matrix<double>* pmat2_inv = new matrix<double>();
@@ -72,4 +71,23 @@ int main()
     std::cout << "mat2_invのmの中身 a[2][1]" << pmat2_inv->a[2][1] << std::endl;
     std::cout << "mat2_invのmの中身 a[2][2]" << pmat2_inv->a[2][2] << std::endl;
 
+    matrix<double>* pmat3 = CreateMatrixMN(2, 2);
+    // ここでrowsが使えるのは、ヘッダーファイルに関数が実装されているから？
+    // C#ではそのまま使えないはず。。。
+    std::cout << "mat3のmの行の数" << pmat3->rows() << std::endl;
+    SetMatrixIJ(pmat3, 1, 1, 1);
+    SetMatrixIJ(pmat3, 1, 2, 2);
+    SetMatrixIJ(pmat3, 2, 1, 3);
+    SetMatrixIJ(pmat3, 2, 2, 7);
+    std::cout << "mat3のmの中身 a[1][1]" << pmat3->a[1][1] << std::endl;
+    std::cout << "mat3のmの中身 a[1][2]" << pmat3->a[1][2] << std::endl;
+    std::cout << "mat3のmの中身 a[2][1]" << pmat3->a[2][1] << std::endl;
+    std::cout << "mat3のmの中身 a[2][2]" << pmat3->a[2][2] << std::endl;
+
+    matrix<double>* pmat3_inv = CreateMatrixMN(2, 2);
+    matrix_inv(pmat3, pmat3_inv);
+    std::cout << "mat3_invのmの中身 a[1][1]" << pmat3_inv->a[1][1] << std::endl;
+    std::cout << "mat3_invのmの中身 a[1][2]" << pmat3_inv->a[1][2] << std::endl;
+    std::cout << "mat3_invのmの中身 a[2][1]" << pmat3_inv->a[2][1] << std::endl;
+    std::cout << "mat3_invのmの中身 a[2][2]" << pmat3_inv->a[2][2] << std::endl;
 }

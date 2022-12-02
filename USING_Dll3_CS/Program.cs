@@ -64,13 +64,8 @@ namespace USING_Dll3_CS
             Console.WriteLine("comp1実部=" + $"{comp1.x}" + " ,虚部=" + $"{comp1.y}\n");
             Console.WriteLine("comp1共役実部=" + $"{comp_conj.x}" + " ,comp1共役虚部=" + $"{comp_conj.y}\n");
 
-
             // Matrix の関数を利用する
-            // var c4 = new Matrix();
-            // matrix_init(ref c4, 2, 2);
-
             Matrix2 matrix1 = new Matrix2();
-
             Matrix2 matrix2 = new Matrix2(2,2);
 
             // 行列に値をセット
