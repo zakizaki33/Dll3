@@ -1,11 +1,9 @@
-﻿// USING_Dll3.cpp : このファイルには 'main' 関数が含まれています。プログラム実行の開始と終了がそこで行われます。
-//
-
-#include <iostream>
+﻿#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-// fileの読み込み
+// HeaderFileの読み込み
 #include "../Dll3/testfunction.h"
+// libFileの読み込み
 // #pragma comment(lib, "../x64/Debug/Dll3.lib")
 
 int main()
@@ -90,4 +88,59 @@ int main()
     std::cout << "mat3_invのmの中身 a[1][2]" << pmat3_inv->a[1][2] << std::endl;
     std::cout << "mat3_invのmの中身 a[2][1]" << pmat3_inv->a[2][1] << std::endl;
     std::cout << "mat3_invのmの中身 a[2][2]" << pmat3_inv->a[2][2] << std::endl;
+
+    // メモリーリークのテスト
+    // http://c-lang.sevendays-study.com/column-28.html
+    int i_;
+    char* p_;
+    for (i_ = 0; i_ < 1000; i_++) {
+        //  メモリを生成（開放しない）
+        p_ = (char*)malloc(sizeof(char) * 1000);
+    }
+    std::cout << "メモリの様子チェック" << std::endl;
+
+
+    /*
+    const int j = 10000;
+    matrix<double>* array_pmat[j];
+
+    std::cout << ((size_t)sizeof(j)) << std::endl;
+    std::cout << ((size_t)sizeof(matrix<double>)) << std::endl;
+        
+    // メモリーリークのテスト
+    for (int i=0 ; i<j ; i++) {
+    matrix<double>* pmat = new matrix<double>();
+    array_pmat[i] = pmat;
+    }
+
+    // delete[] array_pmat;
+
+    std::cout << "メモリの様子チェック" << std::endl;
+
+    // https://brain.cc.kogakuin.ac.jp/~kanamaru/lecture/prog1/11-02.html
+    matrix<double>* p = new matrix<double>[j];
+
+    std::cout << "メモリの様子チェック" << std::endl;
+    delete[] array_pmat;
+    delete[] p;
+    std::cout << "メモリの様子チェック" << std::endl;
+    */
+
+    // ファイル読み書き
+    //  https://stackoverflow.com/questions/6404586/double-to-const-char
+    std::ofstream file("output.txt");
+
+    complex_wrap c11;
+    c11.p1 = 12345;
+    c11.p2 = 24678;
+    
+    // coutと併記してみる
+    std::cout << "c11のp1の値は=" << c11.p1 << std::endl;
+    file << "c11のp1の値は=" << c11.p1 << std::endl;
+    std::cout << "c11のp2の値は=" << c11.p2 << std::endl;
+    file << "c11のp2の値は=" << c11.p2 << std::endl;
+
+    // お片付けを忘れない
+    file.close(); 
+
 }
