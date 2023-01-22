@@ -93,9 +93,9 @@ int main()
     // http://c-lang.sevendays-study.com/column-28.html
     int i_;
     char* p_;
-    for (i_ = 0; i_ < 1000; i_++) {
+    for (i_ = 0; i_ < 100; i_++) {
         //  メモリを生成（開放しない）
-        p_ = (char*)malloc(sizeof(char) * 1000);
+        p_ = (char*)malloc(sizeof(char) * 1000000);
     }
     std::cout << "メモリの様子チェック" << std::endl;
 
@@ -142,5 +142,36 @@ int main()
 
     // お片付けを忘れない
     file.close(); 
+
+
+    // cLens1のポインタを取得 2023-01-20
+    cLens1* p_lens  = Create_cLens1();
+
+    // レンズデータをセットする
+    SetRadius(p_lens, 1, 100);
+    std::cout << "曲率半径は" << GetRadius(p_lens, 1) << std::endl;
+    SetRadius(p_lens, 2, -100);
+    SetDistance(p_lens, 1, 10);
+    // SetGlassName(p_lens, 1, "S-BSL7");
+    SetGlassName(p_lens, 1, "518640");
+    // Releaseモードならばなぜか動く
+    std::cout << "ガラス名は" << GetGlassName(p_lens, 1) << std::endl;
+    
+    // 水野さんに聞くこと
+    // cLens1 lens(2, 3);
+    //　このように書くと、何に２と３がそれぞれ代入される？
+    // radiusの具体的な値はどこに格納される？
+
+
+    // いろいろ計算
+    double focal_length = focallength(p_lens);
+    std::cout << "焦点距離は" << focal_length << std::endl;
+
+
+    // まだ挑戦できる事
+    //　EPDの設定などの関数は作れる。
+
+    // お片付け
+    Delete_cLens1(p_lens);
 
 }

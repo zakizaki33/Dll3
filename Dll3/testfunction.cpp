@@ -5,6 +5,7 @@
 #include "testfunction.h"
 #include "complex.h"
 #include "Matrix.h"
+#include "cLens1.h"
 
 complex_wrap* static_c;
 complex* p_complex;
@@ -168,4 +169,47 @@ double GetMatrixIJ(matrix<double>* pMatrix, int m, int n)
 void DeleteMatrix(matrix<double>* pMatrix)
 {
 	delete pMatrix;
+}
+
+// cLen1‚Ì¶¬
+cLens1* Create_cLens1()
+{
+	return new cLens1();
+}
+
+void Delete_cLens1(cLens1* p_cLens1)
+{
+	delete p_cLens1;
+}
+
+void SetRadius(cLens1* p_cLens1, int surf_i, double value) 
+{
+	p_cLens1->Set_r(surf_i, value);
+}
+
+double GetRadius(cLens1* p_cLens1, int surf_i)
+{
+	return p_cLens1->Get_r(surf_i);
+}
+
+void SetDistance(cLens1* p_cLens1, int surf_i, double value)
+{
+	p_cLens1->Set_d(surf_i, value);
+}
+
+void SetGlassName(cLens1* p_cLens1, int surf_i, const char* pText)
+{
+	std::string str = pText;
+	std::cout << "str‚Ì’†g‚ðŠm”F‚·‚é" << std::endl << str << std::endl;
+	p_cLens1->Set_gname(surf_i, str);
+}
+
+std::string GetGlassName(cLens1* p_cLens1, int surf_i) 
+{
+	return p_cLens1->Get_gname(surf_i);
+}
+
+double focallength(cLens1* p_cLens1)
+{
+	return p_cLens1->f();
 }

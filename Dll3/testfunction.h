@@ -1,6 +1,7 @@
 #pragma once
 #include "complex.h"
 #include "Matrix.h"
+#include "cLens1.h"
 
 #ifdef DLL3_EXPORTS
 #define MATHLIBRARY_API __declspec(dllexport)
@@ -74,3 +75,20 @@ extern "C" MATHLIBRARY_API void SetMatrixIJ(matrix<double>* pMatrix,int m, int n
 extern "C" MATHLIBRARY_API double GetMatrixIJ(matrix<double> * pMatrix, int m, int n);
 
 extern "C" MATHLIBRARY_API void DeleteMatrix(matrix<double>* pMatrix);
+
+// ‚±‚±‚©‚ç‚Í‚¢‚æ‚¢‚æcLens1‚ð—˜—p‚Å‚«‚é‚æ‚¤‚É‚·‚é
+extern "C" MATHLIBRARY_API cLens1* Create_cLens1();
+
+extern "C" MATHLIBRARY_API void Delete_cLens1(cLens1* p_cLens1);
+
+extern "C" MATHLIBRARY_API void SetRadius(cLens1 * p_cLens1, int surf_i, double value);
+
+extern "C" MATHLIBRARY_API double GetRadius(cLens1 * p_cLens1, int surf_i);
+
+extern "C" MATHLIBRARY_API void SetDistance(cLens1 * p_cLens1, int surf_i, double value);
+
+extern "C" MATHLIBRARY_API void SetGlassName(cLens1* p_cLens1, int surf_i, const char* pText);
+
+extern "C" MATHLIBRARY_API std::string GetGlassName(cLens1 * p_cLens1, int surf_i);
+
+extern "C" MATHLIBRARY_API double focallength(cLens1 * p_cLens1);
