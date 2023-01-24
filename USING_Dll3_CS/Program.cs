@@ -31,8 +31,8 @@ namespace USING_Dll3_CS
         public static extern void test_01();
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double ARG(ref Complex pComp);
-        [DllImport("Dll_CPPtoCS.dll")]
-        public static extern void func();
+        // [DllImport("Dll_CPPtoCS.dll")]
+        // public static extern void func();
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Conjugate(ref Complex cComp1, ref Complex cComp2);
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -40,13 +40,11 @@ namespace USING_Dll3_CS
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void matrix_inv(IntPtr p1, IntPtr p2);
 
-
-
         static void Main(string[] args)
         {
 
             Console.WriteLine("最初の一歩");
-            func(); // Dll_CPPtoCS.dll の中の関数
+            // func(); // Dll_CPPtoCS.dll の中の関数
             test_01();　// Dll3.dll の中の関数
 
             // complexを計算させる
@@ -85,6 +83,25 @@ namespace USING_Dll3_CS
             Console.WriteLine(matrix2_copy.GetMatrix(1, 2));
             Console.WriteLine(matrix2_copy.GetMatrix(2, 1));
             Console.WriteLine(matrix2_copy.GetMatrix(2, 2));
+
+            // cLens1のインスタンスをいよいよ作る
+            cLens1 plens1 = new cLens1();
+            // 値のセット
+            plens1.SetRadius(1, 100);
+            plens1.SetRadius(2, -100);
+            plens1.SetDistance(1, 10);
+            // 値の確認
+            Console.WriteLine("第1面の値を確認 ⇒ " + $"{plens1.GetRadius(1)}\n");
+            Console.WriteLine("第2面の値を確認 ⇒ " + $"{plens1.GetRadius(2)}\n");
+
+            string name1 = "518640";
+            plens1.SetGlassName(1, name1);
+            // 次にやるのはSetGlassNameを取得する
+
+            // いよいよ焦点距離を計算する
+            // ここでDubugモードだと落ちる
+            Console.WriteLine("焦点距離を確認 ⇒ " + $"{plens1.focallength()}\n");
+
 
         }
     }
