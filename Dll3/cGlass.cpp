@@ -94,7 +94,11 @@ void cGlass::coordinate(){
 		nF=fabs(Re(m.Index(486.13,Digits)));
 		nC=fabs(Re(m.Index(656.27,Digits)));
 		nud_ini = nud = ( nC==nF ? 0 : (nd-1)/(nF-nC) );
-		dn_ini  = dn  = atof(word(name,2).c_str())/100000;
+		// ’Ç‹L 2023-02-03
+		// dn_ini  = dn  = atof(word(name,2).c_str())/100000;
+		word(name, 2);
+		std::string str = word(name, 2);
+		dn_ini  = dn  = atof(str.c_str())/100000;
 		set_index();
 	}
 	else if(nd!=nd_ini){

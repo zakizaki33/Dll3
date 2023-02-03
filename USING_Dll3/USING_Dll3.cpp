@@ -152,7 +152,9 @@ int main()
     std::cout << "曲率半径は" << GetRadius(p_lens, 1) << std::endl;
     SetRadius(p_lens, 2, -100);
     SetDistance(p_lens, 1, 10);
+    // SetGlassName(p_lens, 0, "1");
     // SetGlassName(p_lens, 1, "S-BSL7");
+    // SetGlassName(p_lens, 2, "1");
     SetGlassName(p_lens, 1, "518640");
     // Releaseモードならばなぜか動く
     std::cout << "ガラス名は" << GetGlassName(p_lens, 1) << std::endl;

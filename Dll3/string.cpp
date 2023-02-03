@@ -256,6 +256,12 @@ int words(const std::string& s){
 }
 
 std::string word(const std::string& s,int n,int erase_bracket/*=1*/){
+	// ’Ç‹L@2023-02-03@‚±‚±‚©‚ç
+	std::string w = word_(s, n);
+	if (w == "") {
+		return "";
+	}
+	// ‚±‚±‚Ü‚Å
 	return erase_yen( trim(word_(s,n),erase_bracket) ); 
 }
 
