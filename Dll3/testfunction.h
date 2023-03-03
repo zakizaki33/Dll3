@@ -23,6 +23,9 @@ struct matrix_wrap {
 
 // 単なるテスト関数
 extern "C" MATHLIBRARY_API void test_01();
+
+extern "C" MATHLIBRARY_API double Return123();
+
 // complex用のテスト関数
 extern "C" MATHLIBRARY_API complex_wrap* test_001();
 

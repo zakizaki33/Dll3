@@ -26,6 +26,11 @@ void test_01()
 	printf("\nHello Dll3!!! 2022-11-07\n\n");
 }
 
+double Return123() 
+{
+	return 123;
+}
+
 complex_wrap* test_001() {
 	static_c = new complex_wrap();
 	static_c->p1 = 0.123;
