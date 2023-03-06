@@ -53,7 +53,25 @@ namespace WindowsFormsApp1_CS
             Console.WriteLine("test_01");
             test_01();　// Dll3.dll の中の関数　（なぜか表示されない。。。。）
             Console.WriteLine(Return123());
+            
+            // cLens1の生成のテスト　ここから
+            cLens1 plens1 = new cLens1();
 
+            // 値のセット
+            plens1.SetRadius(1, 100);
+            plens1.SetRadius(2, -100);
+            plens1.SetDistance(1, 10);
+            // 値の確認
+            Console.WriteLine("第1面の値を確認 ⇒ " + $"{plens1.GetRadius(1)}\n");
+            Console.WriteLine("第2面の値を確認 ⇒ " + $"{plens1.GetRadius(2)}\n");
+
+            string name1 = "518640";
+            // string name1 = "500640";
+
+            plens1.SetGlassName(1, name1);
+            Console.WriteLine("焦点距離を確認 ⇒ " + $"{plens1.focallength()}\n");
+            // ここまで
+ 
 
             // RDNをセットしていく
             // RD は1から開始
