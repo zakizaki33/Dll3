@@ -1,7 +1,10 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include "complex.h"
 #include "Matrix.h"
 #include "cLens1.h"
+#include <comdef.h>
+
 
 #ifdef DLL3_EXPORTS
 #define MATHLIBRARY_API __declspec(dllexport)
@@ -90,8 +93,13 @@ extern "C" MATHLIBRARY_API double GetRadius(cLens1 * p_cLens1, int surf_i);
 
 extern "C" MATHLIBRARY_API void SetDistance(cLens1 * p_cLens1, int surf_i, double value);
 
+extern "C" MATHLIBRARY_API double GetDistance(cLens1 * p_cLens1, int surf_i);
+
 extern "C" MATHLIBRARY_API void SetGlassName(cLens1* p_cLens1, int surf_i, const char* pText);
 
-extern "C" MATHLIBRARY_API std::string GetGlassName(cLens1 * p_cLens1, int surf_i);
+// extern "C" MATHLIBRARY_API std::string GetGlassName(cLens1 * p_cLens1, int surf_i);
+extern "C" MATHLIBRARY_API BSTR GetGlassName(cLens1 * p_cLens1, int surf_i);
+
+extern "C" MATHLIBRARY_API int GetK(cLens1 * p_cLens1);
 
 extern "C" MATHLIBRARY_API double focallength(cLens1 * p_cLens1);

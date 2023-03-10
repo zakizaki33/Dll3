@@ -40,6 +40,9 @@ namespace WindowsFormsApp1_CS
         readonly ClassLibrary1.Lens lens = new ClassLibrary1.Lens();
         // readonly MydllOptics.Lens lens2 = new MydllOptics.Lens();
 
+        // cLens1の生成のテスト　ここから
+        cLens1 plens1 = new cLens1();
+
         public Form1()
         {
             InitializeComponent();
@@ -54,8 +57,6 @@ namespace WindowsFormsApp1_CS
             test_01();　// Dll3.dll の中の関数　（なぜか表示されない。。。。）
             Console.WriteLine(Return123());
             
-            // cLens1の生成のテスト　ここから
-            cLens1 plens1 = new cLens1();
 
             // 値のセット
             plens1.SetRadius(1, 100);
@@ -64,14 +65,17 @@ namespace WindowsFormsApp1_CS
             // 値の確認
             Console.WriteLine("第1面の値を確認 ⇒ " + $"{plens1.GetRadius(1)}\n");
             Console.WriteLine("第2面の値を確認 ⇒ " + $"{plens1.GetRadius(2)}\n");
+            Console.WriteLine("第1面の厚さを確認 ⇒ " + $"{plens1.GetDistance(1)}\n");
+            Console.WriteLine("面の総数を確認 ⇒ " + $"{plens1.GetK()}\n");
+
 
             string name1 = "518640";
             // string name1 = "500640";
 
             plens1.SetGlassName(1, name1);
+            Console.WriteLine("第1面のガラス名を確認 ⇒ " + plens1.GetGlassName(1)+"だによ");
+            
             Console.WriteLine("焦点距離を確認 ⇒ " + $"{plens1.focallength()}\n");
-            // ここまで
- 
 
             // RDNをセットしていく
             // RD は1から開始
@@ -138,12 +142,10 @@ namespace WindowsFormsApp1_CS
             lens.set_N(0, Convert.ToDouble(dataGridView1.Rows[0].Cells[2].Value));
             lens.set_N(1, Convert.ToDouble(dataGridView1.Rows[1].Cells[2].Value));
             lens.set_N(2, Convert.ToDouble(dataGridView1.Rows[2].Cells[2].Value));
-
-
+        
             Console.WriteLine(dataGridView1.Rows[0].Cells[0].Value);
             System.Console.WriteLine(lens.FocalLength());   // lensをどこでインスタンス化させてホールドし続ける？？
             label1.Text = "Focla Length =" + lens.FocalLength();
-
 
         }
 

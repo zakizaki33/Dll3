@@ -1,8 +1,8 @@
-#include <iostream>
+#include "testfunction.h"
+#include "testfunction.h"
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
-#include "testfunction.h"
 #include "complex.h"
 #include "Matrix.h"
 #include "cLens1.h"
@@ -202,6 +202,11 @@ void SetDistance(cLens1* p_cLens1, int surf_i, double value)
 	p_cLens1->Set_d(surf_i, value);
 }
 
+double GetDistance(cLens1* p_cLens1, int surf_i)
+{
+	return p_cLens1->Get_d(surf_i);
+}
+
 void SetGlassName(cLens1* p_cLens1, int surf_i, const char* pText)
 {
 	std::string str = pText;
@@ -209,9 +214,28 @@ void SetGlassName(cLens1* p_cLens1, int surf_i, const char* pText)
 	p_cLens1->Set_gname(surf_i, str);
 }
 
+/*
 std::string GetGlassName(cLens1* p_cLens1, int surf_i) 
 {
 	return p_cLens1->Get_gname(surf_i);
+}
+*/
+BSTR GetGlassName(cLens1* p_cLens1, int surf_i)
+{
+	// return p_cLens1->Get_gname(surf_i);
+	std::string str;
+	str = p_cLens1->Get_gname(surf_i);
+
+	// ‚±‚Ì100‚Æ‚¢‚¤“K“–‚ÈÝ’è‚Å—Ç‚¢‚Ì‚©H
+	wchar_t ws[100];
+	mbstowcs(ws, str.c_str(), 100);
+	return SysAllocString(ws);
+	// return SysAllocString(L"GetGlassName‚¾‚æ");
+}
+
+int GetK(cLens1* p_cLens1) 
+{
+	return p_cLens1->Get_k();
 }
 
 double focallength(cLens1* p_cLens1)

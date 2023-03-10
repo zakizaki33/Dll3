@@ -12,16 +12,32 @@ namespace WindowsFormsApp1_CS
     {
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr Create_cLens1();
+        
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern void Delete_cLens1(IntPtr p_cLens1);
+        
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern void SetRadius(IntPtr p_cLens1, int i, double value);
+        
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern double GetRadius(IntPtr p_cLens1, int i);
+        
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern void SetDistance(IntPtr p_cLens1, int i, double value);
+        
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern double GetDistance(IntPtr p_cLens1, int i);
+        
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetGlassName(IntPtr p_cLens1, int i, string name);
+        
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.BStr)]
+        public static extern string GetGlassName(IntPtr p_cLens1, int i);
+        
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern int GetK(IntPtr p_cLens1);
+        
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern double focallength(IntPtr p_cLens1);
 
@@ -50,9 +66,21 @@ namespace WindowsFormsApp1_CS
         {
             SetDistance(_cLens1Pointer, i, value);
         }
+        public double GetDistance(int i)
+        {
+            return GetDistance(_cLens1Pointer, i);
+        }
         public void SetGlassName(int i, string name)
         {
             SetGlassName(_cLens1Pointer, i, name);
+        }
+        public string GetGlassName(int i)
+        {
+            return GetGlassName(_cLens1Pointer, i);
+        }
+        public int GetK()
+        {
+            return GetK(_cLens1Pointer);
         }
         public double focallength()
         {

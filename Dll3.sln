@@ -16,6 +16,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USING_Dll3_CS", "USING_Dll3
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1_CS", "WindowsFormsApp1_CS\WindowsFormsApp1_CS.csproj", "{48412BE6-06E6-4C54-A6FF-1D4C76CA8345}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AD22C1B7-CAE5-491B-90DD-763746393A61} = {AD22C1B7-CAE5-491B-90DD-763746393A61}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
