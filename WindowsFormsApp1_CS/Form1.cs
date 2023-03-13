@@ -40,8 +40,10 @@ namespace WindowsFormsApp1_CS
         readonly ClassLibrary1.Lens lens = new ClassLibrary1.Lens();
         // readonly MydllOptics.Lens lens2 = new MydllOptics.Lens();
 
-        // cLens1の生成のテスト　ここから
+        // cLens1の生成のテスト　
         cLens1 plens1 = new cLens1();
+        // Userクラスをまとめて処理する準備
+        ObservableCollection<User> data = new ObservableCollection<User>();
 
         public Form1()
         {
@@ -57,7 +59,7 @@ namespace WindowsFormsApp1_CS
             test_01();　// Dll3.dll の中の関数　（なぜか表示されない。。。。）
             Console.WriteLine(Return123());
             
-
+            /*
             // 値のセット
             plens1.SetRadius(1, 100);
             plens1.SetRadius(2, -100);
@@ -76,6 +78,7 @@ namespace WindowsFormsApp1_CS
             Console.WriteLine("第1面のガラス名を確認 ⇒ " + plens1.GetGlassName(1)+"だによ");
             
             Console.WriteLine("焦点距離を確認 ⇒ " + $"{plens1.focallength()}\n");
+            */
 
             // RDNをセットしていく
             // RD は1から開始
@@ -95,16 +98,12 @@ namespace WindowsFormsApp1_CS
             // PictureBox2にお絵かきをする
             Line_Something();
 
-            // data の練習
+            // dataの練習(Userクラスをまとめての取り扱い)
             data.Add(new User("太郎", "北海道"));
             data.Add(new User("次\"郎", "岩手"));
             data.Add(new User("三郎", "宮城"));
             // dataGridView1.DataSource = data;  //ここの工程で、datagridviewに書き込まれる
-
         }
-
-        ObservableCollection<User> data = new ObservableCollection<User>();
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -118,10 +117,10 @@ namespace WindowsFormsApp1_CS
             dataGridView1.Columns[2].HeaderText = "Nd";
             dataGridView1.Columns[3].HeaderText = "Aperture";
 
-            // データを追加
-            dataGridView1.Rows.Add(100, 0, 1.0, 2.0);
-            dataGridView1.Rows.Add(-100, 10, 1.5, 2.0);
-            dataGridView1.Rows.Add(0, 0, 1.0, 2.0);
+            // データを追加(まずは初期値)
+            dataGridView1.Rows.Add(100, 0, "1", 2.0);
+            dataGridView1.Rows.Add(-100, 10, "518640", 2.0);
+            dataGridView1.Rows.Add(0, 0, "1", 2.0);
 
             // textboxの初期化
             textBox1.Text = "練習 (^^♪";
@@ -135,18 +134,28 @@ namespace WindowsFormsApp1_CS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // cLens1のdllを使って焦点距離が計算できるようにする
             // レンズデータを読み込む
+            /*
             lens.set_r(1, Convert.ToDouble(dataGridView1.Rows[0].Cells[0].Value));
             lens.set_r(2, Convert.ToDouble(dataGridView1.Rows[1].Cells[0].Value));
             lens.set_d(1, Convert.ToDouble(dataGridView1.Rows[1].Cells[1].Value));
             lens.set_N(0, Convert.ToDouble(dataGridView1.Rows[0].Cells[2].Value));
             lens.set_N(1, Convert.ToDouble(dataGridView1.Rows[1].Cells[2].Value));
             lens.set_N(2, Convert.ToDouble(dataGridView1.Rows[2].Cells[2].Value));
-        
-            Console.WriteLine(dataGridView1.Rows[0].Cells[0].Value);
+            
             System.Console.WriteLine(lens.FocalLength());   // lensをどこでインスタンス化させてホールドし続ける？？
             label1.Text = "Focla Length =" + lens.FocalLength();
+             */
+            plens1.SetRadius(1, Convert.ToDouble(dataGridView1.Rows[0].Cells[0].Value));
+            plens1.SetRadius(2, Convert.ToDouble(dataGridView1.Rows[1].Cells[0].Value));
+            plens1.SetDistance(1, Convert.ToDouble(dataGridView1.Rows[1].Cells[1].Value));
+            plens1.SetGlassName(0, Convert.ToString(dataGridView1.Rows[0].Cells[2].Value));
+            plens1.SetGlassName(1, Convert.ToString(dataGridView1.Rows[1].Cells[2].Value));
+            plens1.SetGlassName(2, Convert.ToString(dataGridView1.Rows[2].Cells[2].Value));
 
+            System.Console.WriteLine("焦点距離⇒" + $"{plens1.focallength()}\n");  
+            label1.Text = "Focla Length =" + plens1.focallength();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
