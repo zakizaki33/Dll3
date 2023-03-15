@@ -242,3 +242,64 @@ double focallength(cLens1* p_cLens1)
 {
 	return p_cLens1->f();
 }
+
+double backf(cLens1* p_cLens1) 
+{
+	return p_cLens1->bf();
+}
+
+void SetStop(cLens1* p_cLens1, int surf_i) 
+{
+	p_cLens1->Set_stop(surf_i);
+}
+
+int GetStop(cLens1* p_cLens1)
+{
+	return p_cLens1->Get_stop();
+}
+
+void SetEAy(cLens1* p_cLens1, int surf_i, double value)
+{
+	p_cLens1->Set_EAy(surf_i, value);
+}
+
+double GetEAy(cLens1* p_cLens1, int surf_i)
+{
+	return p_cLens1->Get_EAy(surf_i);
+}
+
+void EPCalculation(cLens1* p_cLens1)
+{
+	p_cLens1->EPCalc();
+}
+
+void Set_s(cLens1* p_cLens1, double value)
+{
+	p_cLens1->Set_s(value);
+}
+
+double Get_s(cLens1* p_cLens1)
+{
+	return p_cLens1->Get_s();
+}
+
+void Set_t(cLens1* p_cLens1, double value)
+{
+	p_cLens1->Set_t(value);
+}
+
+double Get_t(cLens1* p_cLens1)
+{
+	return p_cLens1->Get_t();
+}
+
+void Set_EPD(cLens1* p_cLens1, double value)
+{
+	p_cLens1->Set_EPD(value);
+}
+
+double Get_EPD(cLens1* p_cLens1)
+{
+	return p_cLens1->Get_EPD();
+}
+

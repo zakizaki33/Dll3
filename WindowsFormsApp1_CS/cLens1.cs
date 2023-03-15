@@ -41,6 +41,43 @@ namespace WindowsFormsApp1_CS
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern double focallength(IntPtr p_cLens1);
 
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern double backf(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetStop(IntPtr p_cLens1, int i);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern int GetStop(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void SetEAy(IntPtr p_cLens1, int i, double value);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern double GetEAy(IntPtr p_cLens1, int i);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void EPCalculation(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void Set_s(IntPtr p_cLens1, double value);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern double Get_s(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void Set_t(IntPtr p_cLens1, double value);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern double Get_t(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void Set_EPD(IntPtr p_cLens1, double value);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern double Get_EPD(IntPtr p_cLens1);
+
+        // DLL間でやり取りをするためのポインタを定義
         public IntPtr _cLens1Pointer;
 
         public cLens1()
@@ -53,7 +90,7 @@ namespace WindowsFormsApp1_CS
             Delete_cLens1(_cLens1Pointer);
         }
 
-        // 名前をC++と同じにして良いのだろうか。。。。
+        // 名前をC++と同じにして良い(成立する)
         public void SetRadius(int i, double value)
         {
             SetRadius(_cLens1Pointer, i, value);
@@ -85,6 +122,54 @@ namespace WindowsFormsApp1_CS
         public double focallength()
         {
             return focallength(_cLens1Pointer);
+        }
+        public double backf()
+        {
+            return backf(_cLens1Pointer);
+        }
+        public void SetStop(int i)
+        {
+            SetStop(_cLens1Pointer, i);
+        }
+        public int GetStop()
+        {
+            return GetStop(_cLens1Pointer);
+        }
+        public void SetEAy(int i, double value)
+        {
+            SetEAy(_cLens1Pointer, i, value);
+        }
+        public double GetEAy(int i)
+        {
+            return GetEAy(_cLens1Pointer, i);
+        }
+        public void EPCalculation()
+        {
+            EPCalculation(_cLens1Pointer);
+        }
+        public void Set_s(double value)
+        {
+            Set_s(_cLens1Pointer, value);
+        }
+        public double Get_s()
+        {
+            return Get_s(_cLens1Pointer);
+        }
+        public void Set_t(double value)
+        {
+            Set_t(_cLens1Pointer, value);
+        }
+        public double Get_t()
+        {
+            return Get_t(_cLens1Pointer);
+        }
+        public void Set_EPD(double value)
+        {
+            Set_EPD(_cLens1Pointer, value);
+        }
+        public double Get_EPD()
+        {
+            return Get_EPD(_cLens1Pointer);
         }
     }
 }

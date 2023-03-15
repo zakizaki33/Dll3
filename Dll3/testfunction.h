@@ -103,3 +103,32 @@ extern "C" MATHLIBRARY_API BSTR GetGlassName(cLens1 * p_cLens1, int surf_i);
 extern "C" MATHLIBRARY_API int GetK(cLens1 * p_cLens1);
 
 extern "C" MATHLIBRARY_API double focallength(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API double backf(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API void SetStop(cLens1 * p_cLens1, int surf_i);
+
+extern "C" MATHLIBRARY_API int GetStop(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API void SetEAy(cLens1 * p_cLens1, int surf_i, double value);
+
+extern "C" MATHLIBRARY_API double GetEAy(cLens1 * p_cLens1, int surf_i);
+
+extern "C" MATHLIBRARY_API void EPCalculation(cLens1 * p_cLens1);
+
+// é¿ëïó\íË (ñºëOÇìØÇ∂Ç‡ÇÃÇ…ÇµÇƒÇ¢ÇÈÇ™ê¨óßÇ∑ÇÈÇÃÇ©ÅH)
+// set_s,get_s (ï®ëÃä‘ãóó£)
+// set_t, get_t (ì¸éÀìµà íu)
+
+extern "C" MATHLIBRARY_API void Set_s(cLens1 * p_cLens1,double value);
+
+extern "C" MATHLIBRARY_API double Get_s(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API void Set_t(cLens1 * p_cLens1, double value);
+
+extern "C" MATHLIBRARY_API double Get_t(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API void Set_EPD(cLens1 * p_cLens1, double value);
+
+extern "C" MATHLIBRARY_API double Get_EPD(cLens1 * p_cLens1);
+

@@ -153,9 +153,20 @@ namespace WindowsFormsApp1_CS
             plens1.SetGlassName(0, Convert.ToString(dataGridView1.Rows[0].Cells[2].Value));
             plens1.SetGlassName(1, Convert.ToString(dataGridView1.Rows[1].Cells[2].Value));
             plens1.SetGlassName(2, Convert.ToString(dataGridView1.Rows[2].Cells[2].Value));
+            plens1.SetEAy(1, Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value));
+            plens1.SetEAy(2, Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value));
+
+            // EPD等がただしく計算出来ているか確認
+            plens1.SetStop(2);
+            System.Console.WriteLine("絞り面は⇒" + $"{plens1.GetStop()}\n");
+            plens1.EPCalculation();
+            System.Console.WriteLine("s(物体面距離)は⇒" + $"{plens1.Get_s()}\n");
+            System.Console.WriteLine("t(入射瞳位置)は⇒" + $"{plens1.Get_t()}\n");
+            System.Console.WriteLine("EPDは⇒" + $"{plens1.Get_EPD()}\n");
 
             System.Console.WriteLine("焦点距離⇒" + $"{plens1.focallength()}\n");  
-            label1.Text = "Focla Length =" + plens1.focallength();
+            label1.Text = "Focal Length =" + plens1.focallength() + "\n"+
+                          "Back Focal Length =" + plens1.backf() + "\n";
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -453,6 +464,11 @@ namespace WindowsFormsApp1_CS
         }
 
         private void AS_Dist図_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
