@@ -77,6 +77,25 @@ namespace WindowsFormsApp1_CS
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern double Get_EPD(IntPtr p_cLens1);
 
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void SetColorN(IntPtr p_cLens1, int num);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern int GetColorN(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void SetColorWeight(IntPtr p_cLens1, int i, double value);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern double GetColorWeight(IntPtr p_cLens1, int i);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetColor(IntPtr p_cLens1, int i, string name);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.BStr)]
+        public static extern string GetColor(IntPtr p_cLens1, int i);
+
         // DLL間でやり取りをするためのポインタを定義
         public IntPtr _cLens1Pointer;
 
@@ -170,6 +189,30 @@ namespace WindowsFormsApp1_CS
         public double Get_EPD()
         {
             return Get_EPD(_cLens1Pointer);
+        }
+        public void SetColorN(int i)
+        {
+            SetColorN(_cLens1Pointer, i);
+        }
+        public int GetColorN()
+        {
+            return GetColorN(_cLens1Pointer);
+        }
+        public void SetColorWeight(int i, double value)
+        {
+            SetColorWeight(_cLens1Pointer, i, value);
+        }
+        public double GetColorWeight(int i)
+        {
+            return GetColorWeight(_cLens1Pointer, i);
+        }
+        public void SetColor(int i, string name)
+        {
+            SetColor(_cLens1Pointer, i, name);
+        }
+        public string GetColor(int i)
+        {
+            return GetColor(_cLens1Pointer, i);
         }
     }
 }

@@ -163,7 +163,13 @@ namespace WindowsFormsApp1_CS
             System.Console.WriteLine("s(物体面距離)は⇒" + $"{plens1.Get_s()}\n");
             System.Console.WriteLine("t(入射瞳位置)は⇒" + $"{plens1.Get_t()}\n");
             System.Console.WriteLine("EPDは⇒" + $"{plens1.Get_EPD()}\n");
-
+            // 波長関連動作確認
+            plens1.SetColor(1, "d"); // 一旦d線に変更
+            System.Console.WriteLine("波長の数は⇒" + $"{plens1.GetColorN()}\n");
+            System.Console.WriteLine("波長名前は⇒" + $"{plens1.GetColor(1)}\n");
+            System.Console.WriteLine("波長の重みは⇒" + $"{plens1.GetColorWeight(1)}\n");
+            plens1.SetColor(1, "e"); // デフォルトのe線に戻す
+            // 焦点距離確認
             System.Console.WriteLine("焦点距離⇒" + $"{plens1.focallength()}\n");  
             label1.Text = "Focal Length =" + plens1.focallength() + "\n"+
                           "Back Focal Length =" + plens1.backf() + "\n";

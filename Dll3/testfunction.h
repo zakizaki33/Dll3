@@ -97,7 +97,6 @@ extern "C" MATHLIBRARY_API double GetDistance(cLens1 * p_cLens1, int surf_i);
 
 extern "C" MATHLIBRARY_API void SetGlassName(cLens1* p_cLens1, int surf_i, const char* pText);
 
-// extern "C" MATHLIBRARY_API std::string GetGlassName(cLens1 * p_cLens1, int surf_i);
 extern "C" MATHLIBRARY_API BSTR GetGlassName(cLens1 * p_cLens1, int surf_i);
 
 extern "C" MATHLIBRARY_API int GetK(cLens1 * p_cLens1);
@@ -116,10 +115,6 @@ extern "C" MATHLIBRARY_API double GetEAy(cLens1 * p_cLens1, int surf_i);
 
 extern "C" MATHLIBRARY_API void EPCalculation(cLens1 * p_cLens1);
 
-// é¿ëïó\íË (ñºëOÇìØÇ∂Ç‡ÇÃÇ…ÇµÇƒÇ¢ÇÈÇ™ê¨óßÇ∑ÇÈÇÃÇ©ÅH)
-// set_s,get_s (ï®ëÃä‘ãóó£)
-// set_t, get_t (ì¸éÀìµà íu)
-
 extern "C" MATHLIBRARY_API void Set_s(cLens1 * p_cLens1,double value);
 
 extern "C" MATHLIBRARY_API double Get_s(cLens1 * p_cLens1);
@@ -131,4 +126,17 @@ extern "C" MATHLIBRARY_API double Get_t(cLens1 * p_cLens1);
 extern "C" MATHLIBRARY_API void Set_EPD(cLens1 * p_cLens1, double value);
 
 extern "C" MATHLIBRARY_API double Get_EPD(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API void SetColorN(cLens1 * p_cLens1, int num);
+
+extern "C" MATHLIBRARY_API int GetColorN(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API void SetColorWeight(cLens1 * p_cLens1, int num, double value);
+
+extern "C" MATHLIBRARY_API double GetColorWeight(cLens1 * p_cLens1, int num);
+
+extern "C" MATHLIBRARY_API void SetColor(cLens1 * p_cLens1, int num, const char* pText);
+
+extern "C" MATHLIBRARY_API BSTR GetColor(cLens1 * p_cLens1, int num);
+
 

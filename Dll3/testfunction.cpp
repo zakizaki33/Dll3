@@ -214,12 +214,6 @@ void SetGlassName(cLens1* p_cLens1, int surf_i, const char* pText)
 	p_cLens1->Set_gname(surf_i, str);
 }
 
-/*
-std::string GetGlassName(cLens1* p_cLens1, int surf_i) 
-{
-	return p_cLens1->Get_gname(surf_i);
-}
-*/
 BSTR GetGlassName(cLens1* p_cLens1, int surf_i)
 {
 	// return p_cLens1->Get_gname(surf_i);
@@ -303,3 +297,40 @@ double Get_EPD(cLens1* p_cLens1)
 	return p_cLens1->Get_EPD();
 }
 
+void SetColorN(cLens1* p_cLens1,int num)
+{
+	p_cLens1->Set_cn(num);
+}
+
+int GetColorN(cLens1* p_cLens1)
+{
+	return p_cLens1->Get_cn();
+}
+
+void SetColorWeight(cLens1* p_cLens1, int num, double value)
+{
+	p_cLens1->Set_colorweight(num, value);
+}
+
+double GetColorWeight(cLens1* p_cLens1, int num)
+{
+	return p_cLens1->Get_colorweight(num);
+}
+
+void SetColor(cLens1* p_cLens1, int num, const char* pText)
+{
+	// std::string str = pText;
+	// std::cout << "strの中身を確認する" << std::endl << str << std::endl;
+	// p_cLens1->Set_color(num, str);
+	p_cLens1->Set_color(num, pText);
+}
+
+BSTR GetColor(cLens1* p_cLens1, int num)
+{
+	std::string str;
+	str = p_cLens1->Get_color(num);
+	// 100は適当
+	wchar_t ws[100]; 
+	mbstowcs(ws, str.c_str(), 100);
+	return SysAllocString(ws);
+}
