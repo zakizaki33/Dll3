@@ -334,3 +334,29 @@ BSTR GetColor(cLens1* p_cLens1, int num)
 	mbstowcs(ws, str.c_str(), 100);
 	return SysAllocString(ws);
 }
+
+void MakeSAGraph(cLens1* p_cLens1)
+{
+	// ˆê’U‚ÍAŒÅ’è’l‚Æ‚·‚é
+	int FindPupil = 1;
+	double yPupilMax = 1;
+	double FullScale = 0.02;
+	p_cLens1->MakeSAGraph(FindPupil, yPupilMax, FullScale);
+}
+
+void SaveAsBmp(cLens1* p_cLens1)
+{
+	// CurrentShape‚Ì0‚Í‹…–ÊŽû·‚ðˆÓ–¡‚·‚é
+	p_cLens1->CurrentShapes(0)->SaveAsBmp("SAGraph_test_dll3.bmp", 400);
+}
+
+void MakeLensView(cLens1* p_cLens1)
+{
+	// p_cLens1->MakeSAGraph(FindPupil, yPupilMax, FullScale);
+}
+
+void SaveAsBmpLensView(cLens1* p_cLens1)
+{
+	// CurrentShape‚Ì???‚ÍLensView‚ðˆÓ–¡‚·‚é
+	// p_cLens1->CurrentShapes(??)->SaveAsBmp("SAGraph_test_dll3.bmp", 400);
+}

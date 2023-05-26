@@ -5,7 +5,7 @@
 #undef THIS_FILE
 static char THIS_FILE[]=__FILE__;
 // TODO:意味は分からないが一旦コメントアウトして無理やり通した：2022-10-06
-//  TODO:_AFXDLLも無理やり定義している：2022-10-06
+// TODO:_AFXDLLも無理やり定義している：2022-10-06
 // #define new DEBUG_NEW
 #endif
 

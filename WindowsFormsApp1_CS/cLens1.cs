@@ -96,6 +96,12 @@ namespace WindowsFormsApp1_CS
         [return: MarshalAs(UnmanagedType.BStr)]
         public static extern string GetColor(IntPtr p_cLens1, int i);
 
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void MakeSAGraph(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void SaveAsBmp(IntPtr p_cLens1);
+
         // DLL間でやり取りをするためのポインタを定義
         public IntPtr _cLens1Pointer;
 
@@ -213,6 +219,14 @@ namespace WindowsFormsApp1_CS
         public string GetColor(int i)
         {
             return GetColor(_cLens1Pointer, i);
+        }
+        public void MakeSAGraph()
+        {
+            MakeSAGraph(_cLens1Pointer);
+        }
+        public void SaveAsBmp()
+        {
+            SaveAsBmp(_cLens1Pointer);
         }
     }
 }

@@ -71,8 +71,8 @@ template<class T> bool operator!=(const vector<T>& a,const vector<T>& b){
 
 template<class T> double abs(const vector<T>& a) {
 	// 2021-08-23 今回の目的には　conjは使わないのでいったん消す
-	//return sqrt( abs(a.x*conj(a.x)+a.y*conj(a.y)+a.z*conj(a.z)) );
-	return 0;
+	// return 0;
+	return sqrt( abs(a.x*conj(a.x)+a.y*conj(a.y)+a.z*conj(a.z)) );
 }
 
 template<class T> vector<T> DirectionCosine(const vector<T>& a) {
@@ -146,8 +146,8 @@ template<class T> vector<T>& vector<T>::operator*=(const T& c) {
 
 template<class T> T sProduct(const vector<T>& a,const vector<T>& b) {
 	// 73行目と同じ理由
-	// return a.x*conj(b.x)+a.y*conj(b.y)+a.z*conj(b.z);
-	return 0;
+	// return 0;
+	return a.x*conj(b.x)+a.y*conj(b.y)+a.z*conj(b.z);
 }
 
 template<class T> T cosine(const vector<T>& a,const vector<T>& b) {

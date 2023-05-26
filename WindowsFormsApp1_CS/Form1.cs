@@ -173,6 +173,13 @@ namespace WindowsFormsApp1_CS
             System.Console.WriteLine("焦点距離⇒" + $"{plens1.focallength()}\n");  
             label1.Text = "Focal Length =" + plens1.focallength() + "\n"+
                           "Back Focal Length =" + plens1.backf() + "\n";
+
+            // 画像出力確認
+            plens1.MakeSAGraph();
+            plens1.SaveAsBmp();
+            // pictureboxへ表示させる
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.ImageLocation = @"C:\Users\13273_Yamazaki\source\repos\Dll3\WindowsFormsApp1_CS\bin\x64\Debug\SAGraph_test_dll3.bmp";
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -475,6 +482,11 @@ namespace WindowsFormsApp1_CS
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
 
         }

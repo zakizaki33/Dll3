@@ -139,4 +139,13 @@ extern "C" MATHLIBRARY_API void SetColor(cLens1 * p_cLens1, int num, const char*
 
 extern "C" MATHLIBRARY_API BSTR GetColor(cLens1 * p_cLens1, int num);
 
+// ‰æ‘œ‚Ì•Û‘¶‚ğÀ‘•ƒgƒ‰ƒC‚·‚é
+extern "C" MATHLIBRARY_API void MakeSAGraph(cLens1 * p_cLens1);
 
+extern "C" MATHLIBRARY_API void SaveAsBmp(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API void MakeLensView(cLens1 * p_cLens1);
+
+extern "C" MATHLIBRARY_API void SaveAsBmpLensView(cLens1 * p_cLens1);
+
+// TODO vector.h ‚Ìreturn‚ğC³‚µ‚½@2023-05-26

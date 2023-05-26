@@ -49,6 +49,7 @@
             this.SaveCSV = new System.Windows.Forms.Button();
             this.OpenCSV = new System.Windows.Forms.Button();
             this.CSVsaveTest = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -57,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AS_Dist図.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -117,6 +119,7 @@
             // 
             // LensView
             // 
+            this.LensView.Controls.Add(this.pictureBox3);
             this.LensView.Controls.Add(this.textBox1);
             this.LensView.Location = new System.Drawing.Point(4, 22);
             this.LensView.Name = "LensView";
@@ -270,6 +273,15 @@
             this.CSVsaveTest.UseVisualStyleBackColor = true;
             this.CSVsaveTest.Click += new System.EventHandler(this.CSVsaveTest_Click);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(287, 36);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(267, 144);
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -298,6 +310,7 @@
             this.AS_Dist図.ResumeLayout(false);
             this.AS_Dist図.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,6 +339,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_height;
         private System.Windows.Forms.Button Draw_Rect;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 
