@@ -102,6 +102,12 @@ namespace WindowsFormsApp1_CS
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern void SaveAsBmp(IntPtr p_cLens1);
 
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void MakeLensView(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void SaveAsBmpLensView(IntPtr p_cLens1);
+
         // DLL間でやり取りをするためのポインタを定義
         public IntPtr _cLens1Pointer;
 
@@ -227,6 +233,14 @@ namespace WindowsFormsApp1_CS
         public void SaveAsBmp()
         {
             SaveAsBmp(_cLens1Pointer);
+        }
+        public void MakeLensView()
+        {
+            MakeLensView(_cLens1Pointer);
+        }
+        public void SaveAsBmpLensView()
+        {
+            SaveAsBmpLensView(_cLens1Pointer);
         }
     }
 }

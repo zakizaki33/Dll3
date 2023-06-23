@@ -118,9 +118,9 @@ namespace WindowsFormsApp1_CS
             dataGridView1.Columns[3].HeaderText = "Aperture";
 
             // データを追加(まずは初期値)
-            dataGridView1.Rows.Add(100, 0, "1", 2.0);
-            dataGridView1.Rows.Add(-100, 10, "518640", 2.0);
-            dataGridView1.Rows.Add(0, 0, "1", 2.0);
+            dataGridView1.Rows.Add(100, 0, "1", 20.0);
+            dataGridView1.Rows.Add(-100, 10, "518640", 20.0);
+            dataGridView1.Rows.Add(0, 0, "1", 20.0);
 
             // textboxの初期化
             textBox1.Text = "練習 (^^♪";
@@ -177,9 +177,19 @@ namespace WindowsFormsApp1_CS
             // 画像出力確認
             plens1.MakeSAGraph();
             plens1.SaveAsBmp();
-            // pictureboxへ表示させる
+            // picturebox1へ表示させる
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.ImageLocation = @"C:\Users\13273_Yamazaki\source\repos\Dll3\WindowsFormsApp1_CS\bin\x64\Debug\SAGraph_test_dll3.bmp";
+
+            plens1.MakeLensView();
+            plens1.SaveAsBmpLensView();
+            // picturebox3へ表示させる
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.ImageLocation = @"C:\Users\13273_Yamazaki\source\repos\Dll3\WindowsFormsApp1_CS\bin\x64\Debug\LensView_test_dll3.bmp";
+
+
+
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

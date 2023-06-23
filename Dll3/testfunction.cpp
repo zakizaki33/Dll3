@@ -340,7 +340,7 @@ void MakeSAGraph(cLens1* p_cLens1)
 	// ˆê’U‚ÍAŒÅ’è’l‚Æ‚·‚é
 	int FindPupil = 1;
 	double yPupilMax = 1;
-	double FullScale = 0.02;
+	double FullScale = 0.5;
 	p_cLens1->MakeSAGraph(FindPupil, yPupilMax, FullScale);
 }
 
@@ -352,11 +352,10 @@ void SaveAsBmp(cLens1* p_cLens1)
 
 void MakeLensView(cLens1* p_cLens1)
 {
-	// p_cLens1->MakeSAGraph(FindPupil, yPupilMax, FullScale);
+	p_cLens1->MakeLensView("yfans", 0);
 }
 
 void SaveAsBmpLensView(cLens1* p_cLens1)
 {
-	// CurrentShape‚Ì???‚ÍLensView‚ðˆÓ–¡‚·‚é
-	// p_cLens1->CurrentShapes(??)->SaveAsBmp("SAGraph_test_dll3.bmp", 400);
+	p_cLens1->CurrentShapes(p_cLens1->LensView())->SaveAsBmp("LensView_test_dll3.bmp", 400);
 }
