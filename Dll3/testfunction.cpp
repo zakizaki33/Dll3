@@ -242,6 +242,10 @@ double backf(cLens1* p_cLens1)
 	return p_cLens1->bf();
 }
 
+double frontf(cLens1* p_cLens1) {
+	return p_cLens1->ff();
+}
+
 void SetStop(cLens1* p_cLens1, int surf_i) 
 {
 	p_cLens1->Set_stop(surf_i);

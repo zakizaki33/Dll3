@@ -45,6 +45,9 @@ namespace WindowsFormsApp1_CS
         private static extern double backf(IntPtr p_cLens1);
 
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern double frontf(IntPtr p_cLens1);
+
+        [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetStop(IntPtr p_cLens1, int i);
 
         [DllImport("Dll3.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -157,6 +160,10 @@ namespace WindowsFormsApp1_CS
         public double backf()
         {
             return backf(_cLens1Pointer);
+        }
+        public double frontf()
+        {
+            return frontf(_cLens1Pointer);
         }
         public void SetStop(int i)
         {

@@ -105,6 +105,8 @@ extern "C" MATHLIBRARY_API double focallength(cLens1 * p_cLens1);
 
 extern "C" MATHLIBRARY_API double backf(cLens1 * p_cLens1);
 
+extern "C" MATHLIBRARY_API double frontf(cLens1 * p_cLens1);
+
 extern "C" MATHLIBRARY_API void SetStop(cLens1 * p_cLens1, int surf_i);
 
 extern "C" MATHLIBRARY_API int GetStop(cLens1 * p_cLens1);

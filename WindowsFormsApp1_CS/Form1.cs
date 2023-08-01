@@ -100,7 +100,7 @@ namespace WindowsFormsApp1_CS
 
             // dataの練習(Userクラスをまとめての取り扱い)
             data.Add(new User("太郎", "北海道"));
-            data.Add(new User("次\"郎", "岩手"));
+            data.Add(new User("次郎", "岩手"));
             data.Add(new User("三郎", "宮城"));
             // dataGridView1.DataSource = data;  //ここの工程で、datagridviewに書き込まれる
         }
@@ -172,7 +172,9 @@ namespace WindowsFormsApp1_CS
             // 焦点距離確認
             System.Console.WriteLine("焦点距離⇒" + $"{plens1.focallength()}\n");  
             label1.Text = "Focal Length =" + plens1.focallength() + "\n"+
-                          "Back Focal Length =" + plens1.backf() + "\n";
+                          "Back Focal Length =" + plens1.backf() + "\n" +
+                          "Front Focal Length =" + plens1.frontf() + "\n"
+                          ;
 
             // 画像出力確認
             plens1.MakeSAGraph();
